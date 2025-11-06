@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INPUT → KI → OUTPUT | Riedergarten Abstimmung</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font "Inter" -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Eigene Stile für das "Rieder"-Blau und die Schriftart */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fa; /* Heller Hintergrund, um Karten hervorzuheben */
+        }
+        
+        /* Definition der "Rieder"-Farben zur einfachen Anpassung */
+        :root {
+            --rieder-dark-blue: #002D5A; /* Ein tiefes, professionelles Blau */
+            --rieder-accent-blue: #005A9C;
+            --rieder-success-green: #006442;
+        }
+
+        /* Überschreiben der Tailwind-Farben, um sie leicht zu verwenden */
+        .bg-rieder-dark { background-color: var(--rieder-dark-blue); }
+        .text-rieder-dark { color: var(--rieder-dark-blue); }
+        .border-rieder-dark { border-color: var(--rieder-dark-blue); }
+
+        .bg-rieder-accent { background-color: var(--rieder-accent-blue); }
+        .text-rieder-accent { color: var(--rieder-accent-blue); }
+        .border-rieder-accent { border-color: var(--rieder-accent-blue); }
+
+        .text-rieder-success { color: var(--rieder-success-green); }
+        .border-rieder-success { border-color: var(--rieder-success-green); }
+        
+        .highlight-pill {
+            background-color: #e6f0ff;
+            color: var(--rieder-accent-blue);
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 9999px; /* Pillen-Form */
+            font-size: 0.875rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Haupt-Container im "Riederkarten-Design" -->
+    <div class="container max-w-6xl mx-auto my-12 bg-white shadow-2xl rounded-2xl overflow-hidden">
+        
+        <!-- Header mit dem dunklen Rieder-Blau -->
+        <div class="header bg-rieder-dark text-white p-10 md:p-14 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight">INPUT → KI-Analyse → OUTPUT</h1>
+            <p class="text-xl opacity-90">Was Riedergarten reinsteckt & was rauskommt</p>
+            <p class="mt-3 text-sm opacity-70">
+                Abstimmungsdokument für Mag. Bernd Rausch
+            </p>
+            <p class="mt-3 text-sm opacity-70">
+                Projektdesign Dr. Christian Kovac
+            </p>
+        </div>
+
+        <!-- Inhaltsbereich mit sauberem Padding -->
+        <div class="content p-6 md:p-12">
+            
+            <!-- HAUPTFLUSS -->
+            <div class="flow-section mb-16">
+                <div class="flow-title text-3xl font-bold text-rieder-dark text-center mb-10">🔄 Der komplette Prozess</div>
+                
+                <div class="flow-container flex flex-col md:flex-row items-center gap-6">
+                    
+                    <!-- INPUT KARTE -->
+                    <div class="flow-box flex-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg p-7 border-t-4 border-rieder-accent">
+                        <div class="box-title text-2xl font-semibold mb-5 flex items-center gap-3 text-rieder-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            INPUT
+                        </div>
+                        
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-rieder-accent">
+                            <div class="item-label font-semibold text-gray-900 mb-1">1. Bebauungsplan</div>
+                            <div class="item-value text-gray-600 text-sm">PDF hochladen (per Drag & Drop oder Auswahl)</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-rieder-accent">
+                            <div class="item-label font-semibold text-gray-900 mb-1">2. Grundstücksgröße</div>
+                            <div class="item-value text-gray-600 text-sm">z.B. 1.200 m²</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-rieder-accent">
+                            <div class="item-label font-semibold text-gray-900 mb-1">3. Gemeinde</div>
+                            <div class="item-value text-gray-600 text-sm">z.B. Klagenfurt am Wörthersee</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-gray-300">
+                            <div class="item-label font-semibold text-gray-900 mb-1">4. Bauzone (automatisch)</div>
+                            <div class="item-value text-gray-600 text-sm">Wird von KI aus Kataster ermittelt</div>
+                        </div>
+
+                        <p class="mt-6 font-semibold text-center text-gray-700">
+                            Eingabezeit: <span class="highlight-pill">1-2 Minuten</span>
+                        </p>
+                    </div>
+
+                    <!-- PFEIL -->
+                    <div class="arrow text-5xl text-gray-300 font-light transform rotate-90 md:rotate-0 my-4 md:my-0">→</div>
+
+                    <!-- KI KARTE -->
+                    <div class="flow-box flex-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg p-7 border-t-4 border-gray-500 text-center">
+                        <div class="ki-icon text-5xl mb-3">🤖</div>
+                        <div class="ki-text text-2xl font-semibold text-gray-700">KI-Analyse</div>
+                        <p class="mt-4 text-gray-600 text-sm">
+                            Die KI analysiert:
+                        </p>
+                        <ul class="text-left text-gray-600 text-sm list-disc list-inside mt-3 space-y-1 w-fit mx-auto">
+                            <li>Bebauungsplan</li>
+                            <li>Restriktionen</li>
+                            <li>Kataster-Daten</li>
+                            <li>Riedergarten-Stil</li>
+                            <li>Optimierungen</li>
+                        </ul>
+                        <p class="mt-6 font-semibold text-gray-700">
+                            <span class="highlight-pill">~30 Sekunden</span>
+                        </p>
+                    </div>
+
+                    <!-- PFEIL -->
+                    <div class="arrow text-5xl text-gray-300 font-light transform rotate-90 md:rotate-0 my-4 md:my-0">→</div>
+
+                    <!-- OUTPUT KARTE -->
+                    <div class="flow-box flex-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg p-7 border-t-4 border-rieder-success">
+                        <div class="box-title text-2xl font-semibold mb-5 flex items-center gap-3 text-rieder-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            OUTPUT
+                        </div>
+                        
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-rieder-success">
+                            <div class="item-label font-semibold text-gray-900 mb-1">Variante A (konservativ)</div>
+                            <div class="item-value text-gray-600 text-sm">18 Wohnungen, 3 Geschosse, 92% Auslastung</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-rieder-success">
+                            <div class="item-label font-semibold text-gray-900 mb-1">Variante B (optimiert)</div>
+                            <div class="item-value text-gray-600 text-sm">24 Wohnungen, 4 Geschosse, 98% Auslastung</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-gray-300">
+                            <div class="item-label font-semibold text-gray-900 mb-1">Detaillierte Aufschlüsselung</div>
+                            <div class="item-value text-gray-600 text-sm">Wohnungsmix, Stellplätze, Besonderheiten</div>
+                        </div>
+                        <div class="item bg-gray-50 p-4 rounded-lg mb-3 shadow-sm border-l-4 border-gray-300">
+                            <div class="item-label font-semibold text-gray-900 mb-1">Export-Optionen</div>
+                            <div class="item-value text-gray-600 text-sm">PDF-Report, Excel, 3D-Visualisierung</div>
+                        </div>
+
+                        <p class="mt-6 font-semibold text-center text-rieder-success">
+                            📊 Sofort verwendbar für Entscheidungen!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILLIERTES BEISPIEL -->
+            <div class="example-section bg-gray-50 p-8 md:p-10 rounded-2xl my-16 border border-gray-200">
+                <div class="example-title text-3xl font-bold text-rieder-dark text-center mb-10">📋 Konkretes Beispiel: Klagenfurt Projekt</div>
+
+                <div class="visual-example bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-5 text-rieder-accent">INPUT-Maske (Screenshot Demo-App)</h3>
+                    <div class="screenshot-placeholder w-full h-48 md:h-64 bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-lg text-gray-500">
+                        [Hier erscheint im Workshop die echte Web-App]<br>
+                        Upload-Bereich + Eingabefelder
+                    </div>
+                    <p class="text-center text-gray-500 mt-4 text-sm">
+                        ☝️ So sieht die Eingabe-Oberfläche aus
+                    </p>
+                </div>
+
+                <div class="comparison-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="comparison-box bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-4 text-rieder-accent">📥 Was Sie eingeben:</h3>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Bebauungsplan:</span>
+                            <span class="stat-value font-bold text-gray-900">PDF hochgeladen</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Grundstück:</span>
+                            <span class="stat-value font-bold text-gray-900">1.200 m²</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Gemeinde:</span>
+                            <span class="stat-value font-bold text-gray-900">Klagenfurt</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Bauzone:</span>
+                            <span class="stat-value font-bold text-gray-900">Wohngebiet WA</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-box bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                        <h3 class="text-xl font-semibold mb-4 text-rieder-success">📤 Was Sie bekommen:</h3>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Varianten:</span>
+                            <span class="stat-value font-bold text-gray-900">2 Optionen</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Wohnungen (A):</span>
+                            <span class="stat-value font-bold text-gray-900">18 Einheiten</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Wohnungen (B):</span>
+                            <span class="stat-value font-bold text-gray-900">24 Einheiten</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Details:</span>
+                            <span class="stat-value font-bold text-gray-900">Komplett</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OUTPUT DETAILS -->
+            <div class="flow-section mb-16">
+                <div class="flow-title text-3xl font-bold text-rieder-dark text-center mb-10">📊 Output im Detail - Variante A</div>
+                
+                <div class="visual-example bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-rieder-accent mb-6">Was genau bekommt Riedergarten?</h3>
+                    
+                    <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-rieder-accent">
+                        <h4 class="text-xl font-bold text-rieder-accent mb-2">
+                            🏘️ Variante A: Kompakte Bebauung
+                        </h4>
+                        <p class="mb-6 text-gray-600">3 Geschosse mit optimaler Flächennutzung</p>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-gray-200">
+                                <div class="text-4xl font-extrabold text-rieder-accent">18</div>
+                                <div class="text-sm text-gray-600 mt-1">Wohneinheiten</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-gray-200">
+                                <div class="text-4xl font-extrabold text-rieder-accent">3</div>
+                                <div class="text-sm text-gray-600 mt-1">Geschosse</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-gray-200">
+                                <div class="text-4xl font-extrabold text-rieder-accent">92%</div>
+                                <div class="text-sm text-gray-600 mt-1">Auslastung</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg text-center shadow-sm border border-gray-200">
+                                <div class="text-4xl font-extrabold text-rieder-accent">9.5m</div>
+                                <div class="text-sm text-gray-600 mt-1">Gebäudehöhe</div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <strong class="text-gray-800">Wohnungsmix:</strong>
+                                <ul class="mt-3 space-y-2 list-disc list-inside text-gray-600">
+                                    <li>12x Zweizimmerwohnungen (ca. 55-65m²)</li>
+                                    <li>6x Dreizimmerwohnungen (ca. 75-85m²)</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <strong class="text-gray-800">Besonderheiten:</strong>
+                                <ul class="mt-3 space-y-2 list-disc list-inside text-gray-600">
+                                    <li>Balkon/Terrasse bei allen Wohnungen</li>
+                                    <li>Tiefgarage mit 22 Stellplätzen</li>
+                                    <li>Gemeinschaftsgarten im Innenhof</li>
+                                    <li>Riedergarten-typische Fassadengestaltung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-6 text-center italic text-gray-500">
+                        ☝️ Zusätzlich gibt es Variante B mit 24 Wohnungen (4 Geschosse)
+                    </p>
+                </div>
+            </div>
+
+            <!-- VORTEILE -->
+            <div class="flow-section mb-16">
+                <div class="flow-title text-3xl font-bold text-rieder-dark text-center mb-10">✨ Was bringt das Riedergarten?</div>
+                
+                <div class="benefit-grid grid grid-cols-2 md:grid-cols-3 gap-5">
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">⚡</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Geschwindigkeit</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">30 Sek.</div>
+                        <p class="text-gray-600 text-sm">statt 4-6 Wochen</p>
+                    </div>
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">💰</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Kostenersparnis</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">90%</div>
+                        <p class="text-gray-600 text-sm">weniger Ausgaben</p>
+                    </div>
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">🎯</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Genauigkeit</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">100%</div>
+                        <p class="text-gray-600 text-sm">konsistente Ergebnisse</p>
+                    </div>
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">📊</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Varianten</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">2+</div>
+                        <p class="text-gray-600 text-sm">Optionen vergleichen</p>
+                    </div>
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">🔄</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Flexibilität</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">24/7</div>
+                        <p class="text-gray-600 text-sm">jederzeit verfügbar</p>
+                    </div>
+                    <div class="benefit-card bg-white p-6 rounded-xl shadow-lg text-center border border-gray-200">
+                        <div class="benefit-icon text-4xl mb-3">🚀</div>
+                        <div class="benefit-title text-lg font-semibold text-gray-900 mb-2">Skalierbar</div>
+                        <div class="benefit-value text-4xl font-bold text-rieder-accent mb-2">∞</div>
+                        <p class="text-gray-600 text-sm">unbegrenzt Analysen</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERGLEICH VORHER/NACHHER -->
+            <div class="example-section bg-gray-50 p-8 md:p-10 rounded-2xl my-12 border border-gray-200">
+                <div class="example-title text-3xl font-bold text-rieder-dark text-center mb-10">📈 Vorher vs. Nachher</div>
+
+                <div class="comparison-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="comparison-box bg-white p-6 rounded-xl shadow-lg border-2 border-red-200">
+                        <h3 class="text-xl font-semibold mb-4 text-red-600">❌ OHNE KI (Heute)</h3>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Zeitaufwand:</span>
+                            <span class="stat-value font-bold text-red-600">4-6 Wochen</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Kosten:</span>
+                            <span class="stat-value font-bold text-red-600">€15.000+</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Varianten:</span>
+                            <span class="stat-value font-bold text-red-600">Meist nur 1</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Fehleranfälligkeit:</span>
+                            <span class="stat-value font-bold text-red-600">Hoch</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Verfügbarkeit:</span>
+                            <span class="stat-value font-bold text-red-600">Geschäftszeiten</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Kapazität:</span>
+                            <span class="stat-value font-bold text-red-600">Begrenzt</span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-box bg-white p-6 rounded-xl shadow-lg border-2 border-green-200">
+                        <h3 class="text-xl font-semibold mb-4 text-rieder-success">✅ MIT KI (Zukunft)</h3>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Zeitaufwand:</span>
+                            <span class="stat-value font-bold text-rieder-success">30 Sekunden</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Kosten:</span>
+                            <span class="stat-value font-bold text-rieder-success">~€500</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Varianten:</span>
+                            <span class="stat-value font-bold text-rieder-success">2+ gleichzeitig</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Fehleranfälligkeit:</span>
+                            <span class="stat-value font-bold text-rieder-success">Minimal</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Verfügbarkeit:</span>
+                            <span class="stat-value font-bold text-rieder-success">24/7</span>
+                        </div>
+                        <div class="stat-row flex justify-between py-3 border-b border-gray-200 last:border-b-0">
+                            <span class="stat-label text-gray-600">Kapazität:</span>
+                            <span class="stat-value font-bold text-rieder-success">Unbegrenzt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-10 p-6 bg-blue-50 border border-blue-200 rounded-xl">
+                    <h3 class="text-xl font-bold text-rieder-dark mb-3">💡 Das bedeutet konkret:</h3>
+                    <p class="text-lg text-gray-800">
+                        Bei 15 Projekten/Jahr: <strong>Einsparung von €225.000/Jahr</strong><br>
+                        Plus: <strong>90 Wochen Zeitgewinn</strong> = fast 2 Jahre!
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box bg-rieder-dark text-white p-12 rounded-2xl text-center my-12">
+                <h2 class="text-4xl font-bold mb-4">🎯 Ist DAS die Zielvorstellung?</h2>
+                <p class="text-lg text-blue-100 mb-8">Bitte mit Bernd Rausch abstimmen:</p>
+                <div class="max-w-lg mx-auto text-left space-y-4">
+                    
+                    <div class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-300 flex-shrink-0 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-lg text-blue-50">Entspricht der OUTPUT euren Erwartungen?</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-300 flex-shrink-0 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-lg text-blue-50">Sind die Varianten hilfreich für eure Entscheidungen?</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-300 flex-shrink-0 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-lg text-blue-50">Fehlen wichtige Informationen im Output?</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-300 flex-shrink-0 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-lg text-blue-50">Sollen wir zusätzliche Features zeigen?</span>
+                    </div>
+
+                </div>
+                <p class="mt-10 text-lg text-blue-100">
+                    📞 Feedback an: [Ihre Kontaktdaten]
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
